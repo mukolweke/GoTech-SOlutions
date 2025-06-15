@@ -137,15 +137,18 @@ backend:
 
   - task: "Portfolio & Testimonials API"
     implemented: true
-    working: "NA"
+    working: true
     file: "/app/backend/server.py"
     stuck_count: 0
     priority: "medium"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
       - working: "NA"
         agent: "main"
         comment: "Implemented portfolio projects and testimonials endpoints with category filtering."
+      - working: true
+        agent: "testing"
+        comment: "Portfolio & Testimonials API tested successfully. Portfolio projects can be retrieved with category filtering, and testimonials are returned correctly."
 
   - task: "Database Integration"
     implemented: true
