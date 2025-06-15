@@ -5,8 +5,8 @@ from pymongo import MongoClient
 from typing import Optional, List
 import os
 import smtplib
-from email.mime.text import MimeText
-from email.mime.multipart import MimeMultipart
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 import uuid
 from datetime import datetime
 import logging
@@ -72,12 +72,12 @@ EMAIL_PASSWORD = os.environ.get('EMAIL_PASSWORD', '')
 def send_email(to_email: str, subject: str, body: str):
     """Send email notification"""
     try:
-        msg = MimeMultipart()
+        msg = MIMEMultipart()
         msg['From'] = EMAIL_ADDRESS
         msg['To'] = to_email
         msg['Subject'] = subject
         
-        msg.attach(MimeText(body, 'plain'))
+        msg.attach(MIMEText(body, 'plain'))
         
         server = smtplib.SMTP(SMTP_SERVER, SMTP_PORT)
         server.starttls()
