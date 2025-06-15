@@ -179,7 +179,7 @@ def test_blog_posts_retrieval():
     try:
         response = requests.get(f"{API_BASE_URL}/blog/posts")
         print(f"Status Code: {response.status_code}")
-        print(f"Response structure: {json.dumps(response.json().keys(), indent=2)}")
+        print(f"Response structure: {list(response.json().keys())}")
         print(f"Total posts: {response.json().get('total', 0)}")
         
         if response.status_code == 200 and "posts" in response.json():
