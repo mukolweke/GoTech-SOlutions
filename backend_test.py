@@ -259,7 +259,7 @@ def test_blog_comments_retrieval(post_id):
     try:
         response = requests.get(f"{API_BASE_URL}/blog/posts/{post_id}/comments")
         print(f"Status Code: {response.status_code}")
-        print(f"Response structure: {json.dumps(response.json().keys(), indent=2)}")
+        print(f"Response structure: {list(response.json().keys())}")
         print(f"Total comments: {response.json().get('total', 0)}")
         
         if response.status_code == 200 and "comments" in response.json():
@@ -282,7 +282,7 @@ def test_portfolio_projects():
     try:
         response = requests.get(f"{API_BASE_URL}/portfolio/projects")
         print(f"Status Code: {response.status_code}")
-        print(f"Response structure: {json.dumps(response.json().keys(), indent=2)}")
+        print(f"Response structure: {list(response.json().keys())}")
         
         if response.status_code == 200 and "projects" in response.json():
             projects = response.json()["projects"]
@@ -304,7 +304,7 @@ def test_portfolio_projects_filtered():
     try:
         response = requests.get(f"{API_BASE_URL}/portfolio/projects?category=ux-ui")
         print(f"Status Code: {response.status_code}")
-        print(f"Response structure: {json.dumps(response.json().keys(), indent=2)}")
+        print(f"Response structure: {list(response.json().keys())}")
         
         if response.status_code == 200 and "projects" in response.json():
             projects = response.json()["projects"]
@@ -333,7 +333,7 @@ def test_testimonials():
     try:
         response = requests.get(f"{API_BASE_URL}/testimonials")
         print(f"Status Code: {response.status_code}")
-        print(f"Response structure: {json.dumps(response.json().keys(), indent=2)}")
+        print(f"Response structure: {list(response.json().keys())}")
         
         if response.status_code == 200 and "testimonials" in response.json():
             testimonials = response.json()["testimonials"]
